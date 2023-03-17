@@ -4,3 +4,6 @@ DAY1:
 1.Decide the routing App.js file
 2.Create parent and child components
 3.Add the auth routes and other features routes
+
+DAY2:
+4.Adding react-redux and redux-toolkit
