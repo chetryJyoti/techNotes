@@ -1,7 +1,10 @@
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import { apiSlice } from "../../app/api/apiSlice";
 
-const notesAdapter = createEntityAdapter({});
+const notesAdapter = createEntityAdapter({
+  //done to keep the completed notes in the bottom of the table
+  sortComparer: (a, b) => (a.completed === b.completed) ? 0 : a.completed ? 1 : 11
+});
 const initialState = notesAdapter.getInitialState();
 
 //code-splitting
@@ -46,7 +49,7 @@ const selectNotesData = createSelector(
 //getSelectors creates these selectors and we give them a different name as aliases
 export const {
   selectAll: selectAllNotes,
-  selectById: selectUserById,
+  selectById: selectNoteById,
   selectIds: selectNotesIds,
 } = notesAdapter.getSelectors(
   (state) => selectNotesData(state) ?? initialState
