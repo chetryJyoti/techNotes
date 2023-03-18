@@ -1,0 +1,20 @@
+[
+    {
+        "_id": "640ac510601d76748c2ed486",
+        "username": "Jyoti1",
+        "roles": [
+            "Employee"
+        ],
+        "active": true,
+        "__v": 0
+    },
+    {
+        "_id": "640b1dca6dad1c412f64cd80",
+        "username": "info",
+        "roles": [
+            "Admin"
+        ],
+        "active": true,
+        "__v": 0
+    }
+]
