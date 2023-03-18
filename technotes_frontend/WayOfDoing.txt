@@ -7,3 +7,8 @@ DAY1:
 
 DAY2:
 4.Adding react-redux and redux-toolkit
+5.In the features/users components added userApiSlice and after that updated UserList finally added the User component in it
+6.in the userApiSlice injected endpoint getUsers from which redux created hooks 
+
+DAY3:
+5.In the features/notes components added noteApiSlice and after that updated NoteList finally added the Note component in it
