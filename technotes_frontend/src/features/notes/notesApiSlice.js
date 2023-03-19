@@ -3,7 +3,8 @@ import { apiSlice } from "../../app/api/apiSlice";
 
 const notesAdapter = createEntityAdapter({
   //done to keep the completed notes in the bottom of the table
-  sortComparer: (a, b) => (a.completed === b.completed) ? 0 : a.completed ? 1 : 11
+  sortComparer: (a, b) =>
+    a.completed === b.completed ? 0 : a.completed ? 1 : 11,
 });
 const initialState = notesAdapter.getInitialState();
 
@@ -33,9 +34,42 @@ export const notesApiSlice = apiSlice.injectEndpoints({
         } else return [{ type: "User", id: "LIST" }];
       },
     }),
+    addNewNote: builder.mutation({
+      query: (initialNoteData) => ({
+        url: "/notes",
+        method: "POST",
+        body: {
+          ...initialNoteData,
+        },
+      }),
+      invalidatesTags: [{ type: "Note", id: "LIST" }],
+    }),
+    updateNote: builder.mutation({
+      query: (initialNote) => ({
+        url: "/notes",
+        method: "PATCH",
+        body: {
+          ...initialNote,
+        },
+      }),
+      invalidatesTags: (result, error, arg) => [{ type: "Note", id: arg.id }],
+    }),
+    deleteNote: builder.mutation({
+      query: ({ id }) => ({
+        url: `/notes`,
+        method: "DELETE",
+        body: { id },
+      }),
+      invalidatesTags: (result, error, arg) => [{ type: "Note", id: arg.id }],
+    }),
   }),
 });
-export const { useGetNotesQuery } = notesApiSlice;
+export const {
+  useGetNotesQuery,
+  useAddNewNoteMutation,
+  useUpdateNoteMutation,
+  useDeleteNoteMutation,
+} = notesApiSlice;
 
 //returns the query result object
 export const selectNotesResult = notesApiSlice.endpoints.getNotes.select();
