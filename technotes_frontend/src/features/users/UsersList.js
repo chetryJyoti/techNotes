@@ -46,9 +46,9 @@ function UsersList() {
       </table>
       </>
     );
+    return content;
   }
 
-  return content;
 }
 
 export default UsersList;
