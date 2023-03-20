@@ -18,3 +18,9 @@ DAY4:
 7.created new forms for user and notes 
 8.created config for user roles
 9.Done with the new user create form where  i used various validation and usestate and useeffect hooks to create a new user 
+
+DAY5:
+10.Done with various features like createing a new user , updating a user and deleting user(form based)
+11.Also added prefetch mechanism to get subscribe to the data whenever the component mounts and unsubscribing whenever it leaver
+12.Also configured a auto fetching mechanism in teh userApiSlice and noteApiSlice component to fetch the data at a defined intervel of time
+-->this will be usefull when we have multiple users operating in realtime so that the users can see realtime updates 
