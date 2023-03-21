@@ -4,7 +4,7 @@ import { apiSlice } from "../../app/api/apiSlice";
 const notesAdapter = createEntityAdapter({
   //done to keep the completed notes in the bottom of the table
   sortComparer: (a, b) =>
-    a.completed === b.completed ? 0 : a.completed ? 1 : 11,
+    a.completed === b.completed ? 0 : a.completed ? 1 : -1,
 });
 const initialState = notesAdapter.getInitialState();
 
