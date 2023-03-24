@@ -1,6 +1,7 @@
 import React from "react";
 import { useGetNotesQuery } from "./notesApiSlice";
 import Note from "./Note";
+import { ThreeDots } from "react-loader-spinner";
 const NotesList = () => {
   const {
     data: notes,
@@ -15,7 +16,19 @@ const NotesList = () => {
   });
   let content;
 
-  if (isLoading) content = <p>Loading notes...</p>;
+  if (isLoading)
+    content = (
+      <div className="spinner">
+        <ThreeDots
+          height="50"
+          width="100"
+          radius="19"
+          color="lightblue"
+          ariaLabel="three-dots-loading"
+          visible={true}
+        />
+      </div>
+    );
   if (isError) {
     content = <p className="errmsg">{error?.data?.message}</p>;
   }
