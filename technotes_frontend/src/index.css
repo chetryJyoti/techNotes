@@ -368,3 +368,10 @@ tr {
     position: static;
   }
 }
+
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20% 0;
+}
