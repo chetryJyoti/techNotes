@@ -64,8 +64,8 @@ const NotesList = () => {
         <tbody>{tableContent}</tbody>
       </table>
     );
-    return content;
   }
+  return content;
 };
 
 export default NotesList;

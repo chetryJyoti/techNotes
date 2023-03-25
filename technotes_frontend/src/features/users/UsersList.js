@@ -2,7 +2,7 @@ import React from "react";
 import User from "./User";
 import { useGetUsersQuery } from "./usersApiSlice";
 import { ThreeDots } from "react-loader-spinner";
-function UsersList() {
+const UsersList=()=> {
   const {
     data: users,
     isLoading,
@@ -62,8 +62,8 @@ function UsersList() {
         </table>
       </>
     );
-    return content;
   }
+  return content;
 }
 
 export default UsersList;
