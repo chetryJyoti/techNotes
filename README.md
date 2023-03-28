@@ -14,6 +14,6 @@ This project is an employee notes app that aims to replace the current sticky no
 * Notes can be assigned to specific employees and marked as open or completed.
 * Only Managers and Admins can delete notes, create new users, and access user settings.
 * Anyone can create a note when a customer checks-in.
-* Desktop mode is most important, but the app is also available in mobile.
+* Responsive website.
 
 ## Tech stack: MERN
