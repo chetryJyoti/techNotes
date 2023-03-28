@@ -21,7 +21,9 @@ export const authApiSlice = apiSlice.injectEndpoints({
           const { data } = await queryFulfilled;
           console.log(data);
           dispatch(logOut());
-          dispatch(apiSlice.util.resetApiState());
+          setTimeout(() => {
+            dispatch(apiSlice.util.resetApiState());
+          }, 1000);
         } catch (err) {
           console.log(err);
         }
@@ -36,5 +38,5 @@ export const authApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export  const { useLoginMutation, useSendLogoutMutation, useRefreshMutation } =
+export const { useLoginMutation, useSendLogoutMutation, useRefreshMutation } =
   authApiSlice;
