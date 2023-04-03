@@ -22,8 +22,6 @@ function Public() {
         <li>Hardware repair for laptops and desktops</li>
         <li>Virus removal and system cleanup</li>
       </ul>
-      <h2>What Our Customers Say</h2>
-      <blockquote>"Dan D. Repairs saved my laptop! The staff were friendly, knowledgeable, and got the job done quickly. Highly recommend!" - Jane S.</blockquote>
       <address className="public__addr">
         Dan D. Repairs
         <br />

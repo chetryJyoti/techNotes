@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
-function Welcome() {
+const Welcome = () => {
+  const { username, isAdmin, isManager, status } = useAuth();
   const options = {
     weekday: "long",
     year: "numeric",
@@ -17,7 +19,7 @@ function Welcome() {
     <section className="welcome">
       <p>{currentDate}</p>
 
-      <h1>Welcome!</h1>
+      <h1>Welcome {username}!</h1>
 
       <p>
         <Link to="/dash/notes">View AllNotes</Link>
@@ -27,16 +29,19 @@ function Welcome() {
         <Link to="/dash/notes/new">Add NewNote</Link>
       </p>
 
-      <p>
-        <Link to="/dash/users/new">Add NewUser</Link>
-      </p>
-
-      <p>
-        <Link to="/dash/users"> User Settings</Link>
-      </p>
+      {(isManager || isAdmin) && (
+        <p>
+          <Link to="/dash/users/new">Add NewUser</Link>
+        </p>
+      )}
+      {(isManager || isAdmin) && (
+        <p>
+          <Link to="/dash/users"> User Settings</Link>
+        </p>
+      )}
     </section>
   );
   return content;
-}
+};
 
 export default Welcome;
