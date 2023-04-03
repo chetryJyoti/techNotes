@@ -67,7 +67,7 @@
 body {
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
-  background-color: var(--BGCOLOR);
+  background-color: #29395c;
   color: var(--COLOR);
   background-image: url('./assets/backround.jpg');
   background-size: cover;

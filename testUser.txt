@@ -1,0 +1,20 @@
+{
+    "username":"Chetry",
+    "password":"chetry123"
+    "roles":["Admin"]
+}
+{
+    "username":"chetz",
+    "password":"hello",
+    "roles":["Manager"]
+}
+{
+    "username":"Emp",
+    "password":"emp1",
+    "roles":["Employee"]
+}
+{
+    "username":"ManAdm",
+    "password":"manadm",
+    "roles":["Manager","Admin"]
+}
