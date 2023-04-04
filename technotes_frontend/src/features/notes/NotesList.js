@@ -2,7 +2,11 @@ import React from "react";
 import { useGetNotesQuery } from "./notesApiSlice";
 import Note from "./Note";
 import { ThreeDots } from "react-loader-spinner";
+import useAuth from "../../hooks/useAuth";
+
 const NotesList = () => {
+  const { username, isAdmin, isManager } = useAuth();
+
   const {
     data: notes,
     isLoading,
@@ -33,10 +37,19 @@ const NotesList = () => {
     content = <p className="errmsg">{error?.data?.message}</p>;
   }
   if (isSuccess) {
-    const { ids } = notes;
-    const tableContent = ids?.length
-      ? ids.map((noteId) => <Note key={noteId} noteId={noteId}></Note>)
-      : null;
+    const { ids, entities } = notes;
+    let filteredIds;
+    if (isManager || isAdmin) {
+      filteredIds = [...ids];
+    } else {
+      filteredIds = ids.filter(
+        (noteId) => entities[noteId].username === username
+      );
+    }
+    const tableContent =
+      ids?.length &&
+      filteredIds.map((noteId) => <Note key={noteId} noteId={noteId}></Note>);
+
     content = (
       <table className="table table--notes">
         <thead className="table__thead">
