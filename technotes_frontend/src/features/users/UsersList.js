@@ -2,7 +2,7 @@ import React from "react";
 import User from "./User";
 import { useGetUsersQuery } from "./usersApiSlice";
 import { ThreeDots } from "react-loader-spinner";
-const UsersList=()=> {
+const UsersList = () => {
   const {
     data: users,
     isLoading,
@@ -37,9 +37,9 @@ const UsersList=()=> {
   if (isSuccess) {
     const { ids } = users;
 
-    const tableContent = ids?.length
-      ? ids.map((userId) => <User key={userId} userId={userId}></User>)
-      : null;
+    const tableContent =
+      ids?.length &&
+      ids.map((userId) => <User key={userId} userId={userId}></User>);
 
     content = (
       <>
@@ -64,6 +64,6 @@ const UsersList=()=> {
     );
   }
   return content;
-}
+};
 
 export default UsersList;
