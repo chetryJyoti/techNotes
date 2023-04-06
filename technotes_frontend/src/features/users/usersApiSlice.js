@@ -9,10 +9,12 @@ const initialState = usersAdapter.getInitialState();
 export const usersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUsers: builder.query({
-      query: () => "/users",
-      validateStatus: (response, result) => {
-        return response.status === 200 && !result.isError;
-      },
+      query: () => ({
+        url: "/users",
+        validateStatus: (response, result) => {
+          return response.status === 200 && !result.isError;
+        },
+      }),
       // keepUnusedDataFor: 5,
       transformResponse: (responseData) => {
         const loadedUsers = responseData.map((user) => {
@@ -60,11 +62,11 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     }),
   }),
 });
-export const { 
+export const {
   useGetUsersQuery,
   useAddNewUserMutation,
   useUpdateUserMutation,
-  useDeleteUserMutation
+  useDeleteUserMutation,
 } = usersApiSlice;
 
 //returns the query result object
