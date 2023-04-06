@@ -17,7 +17,7 @@ const createNewUser = asyncHandler(async (req, res) => {
   const { username, password, roles } = req.body;
 
   //confirm data
-  if (!username || !password || !Array.isArray(roles) || !roles.length) {
+  if (!username || !password) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
@@ -32,7 +32,10 @@ const createNewUser = asyncHandler(async (req, res) => {
 
   //hash password
   const hashPassword = await bcrypt.hash(password, 10);
-  const userObject = { username, password: hashPassword, roles };
+  const userObject =
+    !Array.isArray(roles) || !roles.length
+      ? { username, password: hashPassword }
+      : { username, password: hashPassword, roles };
 
   //create and store the user
   const user = await User.create(userObject);
