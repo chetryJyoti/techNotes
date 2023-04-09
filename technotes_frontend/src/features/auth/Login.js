@@ -51,7 +51,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("submited");
+      // console.log("submited");
       const { accessToken } = await login({ username, password }).unwrap();
       dispatch(setCredentials({ accessToken }));
       setUsername("");
@@ -67,7 +67,7 @@ const Login = () => {
       } else {
         setErrMsg(err.data?.message);
       }
-      console.log("error:", err);
+      // console.log("error:", err);
       errRef.current.focus();
     }
   };

@@ -18,12 +18,12 @@ const PersistLogin = () => {
   useEffect(() => {
     if (effectRan.current === true || process.env.NODE_ENV !== "development") {
       const verifyRefreshToken = async () => {
-        console.log("verifying refresh token");
+        // console.log("verifying refresh token");
         try {
           await refresh();
           setTrueSuccess(true);
         } catch (err) {
-          console.log("err:", err);
+          // console.log("err:", err);
         }
       };
       if (!token && persist) verifyRefreshToken();
@@ -34,10 +34,10 @@ const PersistLogin = () => {
 
   let content;
   if (!persist) {
-    console.log("No persit");
+    // console.log("No persit");
     content = <Outlet />;
   } else if (isLoading) {
-    console.log("loading");
+    // console.log("loading");
     content =  <div className="spinner">
     <ThreeDots
       height="50"
@@ -49,7 +49,7 @@ const PersistLogin = () => {
     />
   </div>
   } else if (isError) {
-    console.log("error");
+    // console.log("error");
     content = (
       <p className="errmsg">
         {`${error?.data?.message} - `}
@@ -58,12 +58,12 @@ const PersistLogin = () => {
     );
   } else if (isSuccess && trueSuccess) {
     //persist: yes, token: yes
-    console.log("success");
+    // console.log("success");
     content = <Outlet />;
   } else if (token && isUninitialized) {
     //persist: yes, token: yes
-    console.log("token and uninit");
-    console.log(isUninitialized);
+    // console.log("token and uninit");
+    // console.log(isUninitialized);
     content = <Outlet />;
   }
 
