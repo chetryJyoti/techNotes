@@ -17,3 +17,4 @@ This project is an employee notes app that aims to replace the current sticky no
 * Responsive website.
 
 ## Tech stack: MERN
+##Production version v1
